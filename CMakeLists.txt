@@ -1,0 +1,42 @@
+cmake_minimum_required(VERSION 3.22.1)
+project(DingDong)
+set(CMAKE_CXX_STANDARD 17)
+include_directories(/usr/include)
+include_directories(/usr/local/include)
+include_directories(include)
+include_directories(src/database_Map_To_Memory/Map_Obj)
+include_directories(src/database_Map_To_Memory/Map_Logical)
+include_directories(src/server/Chat_Server)
+include_directories(src/server/File_Server)
+include_directories(src/Global)
+add_executable(${CMAKE_PROJECT_NAME}
+        src/main.cpp
+        src/Global/Global.h
+        src/Global/Global.cpp
+        src/Global/config.h
+        src/Global/config.cpp
+        src/database_Map_To_Memory/Map_Obj/Map_Database_online_User.h
+        src/database_Map_To_Memory/Map_Obj/Map_Database_online_User.cpp
+        src/database_Map_To_Memory/Map_Obj/Map_Database_Group_User.h
+        src/database_Map_To_Memory/Map_Obj/Map_Database_Group_User.cpp
+        src/database_Map_To_Memory/Map_Obj/Map_Database_Group.h
+        src/database_Map_To_Memory/Map_Obj/Map_Database_Group.cpp
+        src/database_Map_To_Memory/Map_Logical/Map_Database_Logical_To_Online_User.h
+        src/database_Map_To_Memory/Map_Logical/Map_Database_Logical_To_Online_User.cpp
+        src/database_Map_To_Memory/Map_Logical/Map_Database_Logical_To_Group_Relate.h
+        src/database_Map_To_Memory/Map_Logical/Map_Database_Logical_To_Group_Relate.cpp
+        src/server/Chat_Server/Chat_Server.h
+        src/server/Chat_Server/Chat_Server.cpp
+        src/server/File_Server/File_Server.h
+        src/server/File_Server/File_Server.cpp
+        src/Global/Global.h
+        src/Global/Global.cpp
+)
+target_link_libraries(${CMAKE_PROJECT_NAME}
+        /usr/lib/x86_64-linux-gnu/libjsoncpp.so
+        /usr/lib/x86_64-linux-gnu/libevent.so
+        /usr/lib/x86_64-linux-gnu/libmysqlclient.so
+        /usr/lib/x86_64-linux-gnu/libyaml-cpp.so
+        ${CMAKE_SOURCE_DIR}/lib/libdatabase_Service.so
+)
+

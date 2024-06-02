@@ -1,0 +1,12 @@
+server:
+  ip: "0.0.0.0"
+  port: 8080
+
+mysql:
+  database_name: "your_database_name"
+  host: "your_host"
+  user: "your_user"
+  password: "your_password"
+  port: 3306
+
+
